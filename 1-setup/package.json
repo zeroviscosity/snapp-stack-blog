@@ -1,0 +1,16 @@
+{
+    "name": "snapp-stack-blog",
+    "version": "0.0.0",
+    "description": "Scala Ngnix AngularJS Play PostgreSQL",
+    "devDependencies": {
+        "grunt": "latest",
+        "grunt-contrib-compass": "latest",
+        "grunt-contrib-concat": "latest",
+        "grunt-contrib-uglify": "latest",
+        "grunt-contrib-watch": "latest",
+        "grunt-karma": "latest",
+        "karma": "latest",
+        "karma-jasmine": "*",
+        "karma-chrome-launcher": "*"
+    }
+}
