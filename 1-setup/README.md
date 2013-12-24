@@ -139,8 +139,8 @@ module.exports = function(grunt) {
 };
 ```
 
-* Create a `src` directory and add `sass` and `js` directories to it
-* In `src/js` create `controllers`, `directives`, `filters`, and `services` directories
+* Create a `src` directory and add `sass` and `javascripts` directories to it
+* In `src/javascripts` create `controllers`, `directives`, `filters`, and `services` directories
 * Create `Dependencies.scala`:
 
 ```scala
