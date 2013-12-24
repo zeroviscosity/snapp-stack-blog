@@ -15,4 +15,5 @@ dist
 /.classpath
 /.project
 /RUNNING_PID
+/.sass-cache
 /.settings

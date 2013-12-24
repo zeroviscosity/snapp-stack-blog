@@ -23,12 +23,7 @@ db.default.url="jdbc:postgresql://localhost:5432/blog"
 db.default.driver=org.postgresql.Driver
 ```
 
-* Run:
-
-```bash
-gem install compass zurb-foundation
-```
-
+* Add `compass` and `foundation` gems
 * Add `.bowerrc` in the project route:
 
 ```json
@@ -41,7 +36,7 @@ gem install compass zurb-foundation
 
 ```bash
 bower init
-bower install angular angular-route foundation --save
+bower install angular angular-route angular-sanitize foundation --save
 ```
 
 * Add `package.json`:
@@ -91,7 +86,7 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     require: ['compass', 'zurb-foundation'],
-                    sassDir: 'src/sass',
+                    sassDir: 'src/scss',
                     cssDir: 'public/css'
                 }
             }
@@ -120,7 +115,7 @@ module.exports = function(grunt) {
                 tasks: ['concat']
             },
             compass: {
-                files: ['src/sass/*.scss', 'src/sass/**/*.scss'],
+                files: ['src/scss/*.scss', 'src/scss/**/*.scss'],
                 tasks: ['compass']
             }
         }
@@ -140,8 +135,10 @@ module.exports = function(grunt) {
 };
 ```
 
-* Create a `src` directory and add `sass` and `js` directories to it
+* Create a `src` directory and add `scss` and `js` directories to it
 * In `src/js` create `controllers`, `directives`, `filters`, and `services` directories
+* Copy contents of `public/components/foundation/scss` into `src/scss`
+* Rename `src/scss/foundation.scss` to `src/scss/_foundation.scss` and `src/scss/normalize.scss` to `src/scss/_normalize.scss`
 * Create `Dependencies.scala`:
 
 ```scala
@@ -169,4 +166,10 @@ object Dependencies {
 
 ```sbt
 libraryDependencies ++= Dependencies.app
+```
+
+* Update `app/views/main.scala.html`:
+
+```html
+
 ```

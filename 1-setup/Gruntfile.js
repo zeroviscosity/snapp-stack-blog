@@ -8,21 +8,21 @@ module.exports = function(grunt) {
             },
             app: {
                 src: [
-                    'src/javascripts/app.js',
-                    'src/javascripts/services/*.js',
-                    'src/javascripts/controllers/*.js',
-                    'src/javascripts/directives/*.js',
-                    'src/javascripts/filters/*.js'
+                    'src/js/app.js',
+                    'src/js/services/*.js',
+                    'src/js/controllers/*.js',
+                    'src/js/directives/*.js',
+                    'src/js/filters/*.js'
                 ],
-                dest: 'public/javascripts/app.js'
+                dest: 'public/js/app.js'
             }
         },
         compass: {
             dist: {
                 options: {
-                    require: ['compass', 'zurb-foundation'],
-                    sassDir: 'src/sass',
-                    cssDir: 'public/stylesheets'
+                    require: ['compass', 'foundation'],
+                    sassDir: 'src/scss',
+                    cssDir: 'public/css'
                 }
             }
         },
@@ -32,8 +32,8 @@ module.exports = function(grunt) {
                     mangle: false
                 },
                 files: {
-                    'public/javascripts/app.min.js': [
-                        'public/javascripts/app.js'
+                    'public/js/app.min.js': [
+                        'public/js/app.js'
                     ]
                 }
             }
@@ -44,13 +44,13 @@ module.exports = function(grunt) {
             },
             concat: {
                 files: [
-                    'src/javascripts/*.js',
-                    'src/javascripts/**/*.js'
+                    'src/js/*.js',
+                    'src/js/**/*.js'
                 ],
                 tasks: ['concat']
             },
             compass: {
-                files: ['src/sass/*.scss', 'src/sass/**/*.scss'],
+                files: ['src/scss/*.scss', 'src/scss/**/*.scss'],
                 tasks: ['compass']
             }
         }
