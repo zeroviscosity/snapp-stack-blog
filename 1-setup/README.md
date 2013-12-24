@@ -13,6 +13,7 @@ This project contains a blog built up incrementally in the SNAPP (Scala Ngnix An
 play new snappy-blog
 ```
 
+* In `public` rename `images` to `img`, `javascripts` to `js` and `stylesheets` to `css`
 * Update `conf/application.conf`:
 
 ```scala
@@ -77,13 +78,13 @@ module.exports = function(grunt) {
             },
             app: {
                 src: [
-                    'src/javascripts/app.js',
-                    'src/javascripts/services/*.js',
-                    'src/javascripts/controllers/*.js',
-                    'src/javascripts/directives/*.js',
-                    'src/javascripts/filters/*.js'
+                    'src/js/app.js',
+                    'src/js/services/*.js',
+                    'src/js/controllers/*.js',
+                    'src/js/directives/*.js',
+                    'src/js/filters/*.js'
                 ],
-                dest: 'public/javascripts/app.js'
+                dest: 'public/js/app.js'
             }
         },
         compass: {
@@ -91,7 +92,7 @@ module.exports = function(grunt) {
                 options: {
                     require: ['compass', 'zurb-foundation'],
                     sassDir: 'src/sass',
-                    cssDir: 'public/stylesheets'
+                    cssDir: 'public/css'
                 }
             }
         },
@@ -101,8 +102,8 @@ module.exports = function(grunt) {
                     mangle: false
                 },
                 files: {
-                    'public/javascripts/app.min.js': [
-                        'public/javascripts/app.js'
+                    'public/js/app.min.js': [
+                        'public/js/app.js'
                     ]
                 }
             }
@@ -113,8 +114,8 @@ module.exports = function(grunt) {
             },
             concat: {
                 files: [
-                    'src/javascripts/*.js',
-                    'src/javascripts/**/*.js'
+                    'src/js/*.js',
+                    'src/js/**/*.js'
                 ],
                 tasks: ['concat']
             },
@@ -139,8 +140,8 @@ module.exports = function(grunt) {
 };
 ```
 
-* Create a `src` directory and add `sass` and `javascripts` directories to it
-* In `src/javascripts` create `controllers`, `directives`, `filters`, and `services` directories
+* Create a `src` directory and add `sass` and `js` directories to it
+* In `src/js` create `controllers`, `directives`, `filters`, and `services` directories
 * Create `Dependencies.scala`:
 
 ```scala
