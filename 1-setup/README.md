@@ -7,6 +7,7 @@ This project contains a blog built up incrementally in the SNAPP (Scala Ngnix An
 * Download Play from http://www.playframework.com/download
 * Put `play` in your path
 * Navigate to where you want the application and run:
+
 ```bash
 play new snappy-blog
 ```
