@@ -1,0 +1,22 @@
+{
+  "name": "snapp-stack-blog",
+  "version": "0.0.0",
+  "homepage": "https://github.com/zeroviscosity/snapp-stack-blog",
+  "authors": [
+    "Kent English <kent.english@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.6",
+    "angular-route": "~1.2.6",
+    "foundation": "~5.0.2"
+  }
+}
