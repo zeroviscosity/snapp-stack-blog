@@ -376,7 +376,7 @@ object Application extends Controller {
     <script src="@routes.Assets.at("components/modernizr/modernizr.js")"></script>
   </head>
   <body data-ng-app="app">
-    <!--[if lt IE 7]>
+    <!--[if lt IE 9]>
       <div class="panel browsehappy">
         You are using an <strong>outdated</strong> browser.
         Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.
