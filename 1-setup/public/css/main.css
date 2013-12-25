@@ -8127,22 +8127,23 @@ th.hide-for-touch {
 
 /* line 15, ../../src/scss/main.scss */
 html, body {
+  background-color: #efefef;
   height: 100%;
   overflow-y: auto;
 }
 
-/* line 20, ../../src/scss/main.scss */
+/* line 21, ../../src/scss/main.scss */
 nav {
   background-color: #727272;
   height: 80px;
 }
-/* line 23, ../../src/scss/main.scss */
+/* line 24, ../../src/scss/main.scss */
 nav .zv-logo-top {
   background-color: #88d21e;
   height: 35px;
   position: relative;
 }
-/* line 27, ../../src/scss/main.scss */
+/* line 28, ../../src/scss/main.scss */
 nav .zv-logo-top .zv-logo {
   background: transparent url(/assets/img/logo-60.png) no-repeat left top;
   height: 60px;
@@ -8151,22 +8152,22 @@ nav .zv-logo-top .zv-logo {
   top: 10px;
   width: 60px;
 }
-/* line 36, ../../src/scss/main.scss */
+/* line 37, ../../src/scss/main.scss */
 nav .zv-logo-bottom {
   background-color: #efefef;
   height: 10px;
 }
-/* line 40, ../../src/scss/main.scss */
+/* line 41, ../../src/scss/main.scss */
 nav .zv-nav {
   list-style-type: none;
   margin: 0 0 0 6.25rem;
   padding: 0;
 }
-/* line 44, ../../src/scss/main.scss */
+/* line 45, ../../src/scss/main.scss */
 nav .zv-nav li {
   float: left;
 }
-/* line 46, ../../src/scss/main.scss */
+/* line 47, ../../src/scss/main.scss */
 nav .zv-nav li a {
   -webkit-transition-property: all;
   -moz-transition-property: all;
@@ -8180,7 +8181,6 @@ nav .zv-nav li a {
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
-  background-color: #88d21e;
   color: #efefef;
   display: block;
   margin: 0 0.625rem 0 0;

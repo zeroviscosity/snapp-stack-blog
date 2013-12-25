@@ -13,6 +13,7 @@ $off-white: #efefef;
         "foundation";
 
 html, body {
+  background-color: $off-white;
   height: 100%;
   overflow-y: auto;
 }
@@ -47,7 +48,6 @@ nav {
         @include transition-property(all);
         @include transition-duration(0.3s);
         @include transition-timing-function(linear);
-        background-color: $primary-color;
         color: $off-white;
         display: block;
         margin: 0 rem-calc(10) 0 0;
