@@ -8202,31 +8202,36 @@ footer {
 }
 
 /* line 72, ../../src/scss/main.scss */
+.panel.browsehappy {
+  margin: 0;
+}
+
+/* line 76, ../../src/scss/main.scss */
 .container {
   height: 100%;
   overflow-y: auto;
   position: relative;
 }
-/* line 76, ../../src/scss/main.scss */
+/* line 80, ../../src/scss/main.scss */
 .container > div {
   padding: 0 40px 20px 40px;
 }
 
 @media only screen and (min-width: 40.063em) {
-  /* line 82, ../../src/scss/main.scss */
+  /* line 86, ../../src/scss/main.scss */
   nav {
     float: left;
     height: 100%;
     overflow-y: auto;
     width: 120px;
   }
-  /* line 87, ../../src/scss/main.scss */
+  /* line 91, ../../src/scss/main.scss */
   nav .zv-logo-top {
     background-color: #88d21e;
     height: 35px;
     position: relative;
   }
-  /* line 91, ../../src/scss/main.scss */
+  /* line 95, ../../src/scss/main.scss */
   nav .zv-logo-top .zv-logo {
     background: transparent url(/assets/img/logo-60.png) no-repeat left top;
     height: 60px;
@@ -8235,21 +8240,21 @@ footer {
     top: 10px;
     width: 60px;
   }
-  /* line 100, ../../src/scss/main.scss */
+  /* line 104, ../../src/scss/main.scss */
   nav .zv-logo-bottom {
     background-color: #efefef;
     height: 10px;
   }
-  /* line 104, ../../src/scss/main.scss */
+  /* line 108, ../../src/scss/main.scss */
   nav .zv-nav {
     border-top: 0.0625rem solid #575757;
     margin: 2.5rem 0 0.4375rem 0;
   }
-  /* line 107, ../../src/scss/main.scss */
+  /* line 111, ../../src/scss/main.scss */
   nav .zv-nav li {
     float: none;
   }
-  /* line 109, ../../src/scss/main.scss */
+  /* line 113, ../../src/scss/main.scss */
   nav .zv-nav li a {
     background-color: #727272;
     border-bottom: 0.0625rem solid #575757;
@@ -8257,15 +8262,15 @@ footer {
   }
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 120, ../../src/scss/main.scss */
+  /* line 124, ../../src/scss/main.scss */
   nav {
     width: 240px;
   }
-  /* line 122, ../../src/scss/main.scss */
+  /* line 126, ../../src/scss/main.scss */
   nav .zv-logo-top {
     height: 70px;
   }
-  /* line 124, ../../src/scss/main.scss */
+  /* line 128, ../../src/scss/main.scss */
   nav .zv-logo-top .zv-logo {
     background: transparent url(/assets/img/logo-120.png) no-repeat left top;
     height: 120px;
@@ -8273,11 +8278,11 @@ footer {
     top: 20px;
     width: 120px;
   }
-  /* line 132, ../../src/scss/main.scss */
+  /* line 136, ../../src/scss/main.scss */
   nav .zv-logo-bottom {
     height: 20px;
   }
-  /* line 135, ../../src/scss/main.scss */
+  /* line 139, ../../src/scss/main.scss */
   nav .zv-nav {
     margin: 5rem 0 0.875rem 0;
   }

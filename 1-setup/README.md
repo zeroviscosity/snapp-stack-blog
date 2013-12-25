@@ -241,6 +241,10 @@ footer {
   width: 100%;
 }
 
+.panel.browsehappy {
+  margin: 0;
+}
+
 .container {
   height: 100%;
   overflow-y: auto;
@@ -373,7 +377,10 @@ object Application extends Controller {
   </head>
   <body data-ng-app="app">
     <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <div class="panel browsehappy">
+        You are using an <strong>outdated</strong> browser.
+        Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.
+      </div>
     <![endif]-->
 
     <nav>
