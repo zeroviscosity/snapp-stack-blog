@@ -53,6 +53,7 @@ db.default.driver=org.postgresql.Driver
 ```
 
 * In `public` rename `images` to `img`, `javascripts` to `js` and `stylesheets` to `css`
+* IN `public` add a `templates` directory
 * Add `.bowerrc` in the project route:
 
 ```json
@@ -175,10 +176,63 @@ module.exports = function(grunt) {
 // Set some colors
 $primary-color: #88D21E;
 $secondary-color: #727272;
+$tertiary-color: #575757;
 
 // Import normalize and foundation to keep from needing multiple CSS files
-@import "normalize",
+@import "compass/css3",
+        "normalize",
         "foundation";
+
+html, body, .full-height {
+  height: 100%;
+  overflow-y: auto;
+}
+
+nav {
+  background-color: $secondary-color;
+  float: left;
+  width: 240px;
+  .logo-top {
+    background-color: $primary-color;
+    height: 70px;
+    position: relative;
+    .logo {
+      background: transparent url(/assets/img/logo.png) no-repeat left top;
+      height: 120px;
+      left: 60px;
+      position: absolute;
+      top: 20px;
+      width: 120px;
+    }
+  }
+  .logo-bottom {
+    background-color: #efefef;
+    height: 20px;
+  }
+  .zv-side-nav {
+    border-top: rem-calc(1) solid $tertiary-color;
+    list-style-type: none;
+    margin: rem-calc(80 0 14 0);
+    padding: 0;
+    li {
+      a {
+        @include transition-property(all);
+        @include transition-duration(0.3s);
+        @include transition-timing-function(linear);
+        border-bottom: rem-calc(1) solid $tertiary-color;
+        display: block;
+        padding: rem-calc(5 8 5 8);
+        &:hover {
+          background-color: $tertiary-color;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  padding: 0 20px;
+}
 ```
 
 * In `src/js` create `controllers`, `directives`, `filters`, and `services` directories
@@ -191,13 +245,32 @@ var app = angular.module('app', ['ngRoute', 'ngSanitize']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
-        templateUrl: '/list'
+        redirectTo: '/about'
+    }).when('/about', {
+        templateUrl: '/assets/templates/about.html'
     }).otherwise({
         redirectTo: '/'
     });
 
     $locationProvider.html5Mode(true).hashPrefix('!');
 }]);
+```
+
+* Update `app/controllers/Application.scala`:
+
+```scala
+package controllers
+
+import play.api._
+import play.api.mvc._
+
+object Application extends Controller {
+
+  def index = Action {
+    Ok(views.html.index())
+  }
+
+}
 ```
 
 * Update `app/views/main.scala.html`:
@@ -243,13 +316,17 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 * Update `app/views/index.scala.html`:
 
 ```html
-@(message: String)
-
 @main("Posts") {
 
     <div data-ng-view></div>
 
 }
+
+```
+
+* In `public/templates` add `about.html`:
+
+```html
 
 ```
 

@@ -4,8 +4,74 @@
 // Set some colors
 $primary-color: #88D21E;
 $secondary-color: #727272;
+$tertiary-color: #575757;
+$off-white: #efefef;
 
 // Import normalize and foundation to keep from needing multiple CSS files
-@import "normalize",
+@import "compass/css3",
+        "normalize",
         "foundation";
 
+html, body, .full-height {
+  height: 100%;
+  overflow-y: auto;
+}
+
+nav {
+  background-color: $secondary-color;
+  float: left;
+  width: 240px;
+  .logo-top {
+    background-color: $primary-color;
+    height: 70px;
+    position: relative;
+    .logo {
+      background: transparent url(/assets/img/logo.png) no-repeat left top;
+      height: 120px;
+      left: 60px;
+      position: absolute;
+      top: 20px;
+      width: 120px;
+    }
+  }
+  .logo-bottom {
+    background-color: $off-white;
+    height: 20px;
+  }
+  .zv-side-nav {
+    border-top: rem-calc(1) solid $tertiary-color;
+    list-style-type: none;
+    margin: rem-calc(80 0 14 0);
+    padding: 0;
+    li {
+      a {
+        @include transition-property(all);
+        @include transition-duration(0.3s);
+        @include transition-timing-function(linear);
+        border-bottom: rem-calc(1) solid $tertiary-color;
+        color: $off-white;
+        display: block;
+        padding: rem-calc(5 8 5 8);
+        &:hover {
+          background-color: $tertiary-color;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  bottom: 0;
+  font-size: rem-calc(12);
+  padding: 4px 0;
+  position: absolute;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  > div {
+    padding: 0 40px 20px 40px;
+  }
+}
