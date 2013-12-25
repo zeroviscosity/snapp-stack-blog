@@ -4,7 +4,7 @@ var app = angular.module('app', ['ngRoute', 'ngSanitize']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
-        templateUrl: '/templates/index'
+        templateUrl: '/list'
     }).otherwise({
         redirectTo: '/'
     });

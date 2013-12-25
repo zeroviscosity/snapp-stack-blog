@@ -6,6 +6,7 @@ This project contains a blog built up incrementally in the SNAPP (Scala Ngnix An
 
 * Set up PostgreSQL and create a database called `blog`
 * Install `ruby`, `node`, `npm`, `bower` and `grunt-cli`
+* Add `compass` and `foundation` gems
 * Download Play from http://www.playframework.com/download and put `play` in your path
 * Navigate to where you want the application and run:
 
@@ -13,7 +14,35 @@ This project contains a blog built up incrementally in the SNAPP (Scala Ngnix An
 play new snappy-blog
 ```
 
-* In `public` rename `images` to `img`, `javascripts` to `js` and `stylesheets` to `css`
+* Create `Dependencies.scala`:
+
+```scala
+import sbt._
+
+object Version {
+  val scala         = "2.10.3"
+  val postgresql    = "9.1-901.jdbc4"
+}
+
+object Library {
+  val postgresql    = "postgresql"    % "postgresql"    % Version.postgresql
+}
+
+object Dependencies {
+  import Library._
+
+  val app = List(
+    postgresql
+  )
+}
+```
+
+* Add the following to `build.sbt`:
+
+```sbt
+libraryDependencies ++= Dependencies.app
+```
+
 * Update `conf/application.conf`:
 
 ```scala
@@ -23,7 +52,7 @@ db.default.url="jdbc:postgresql://localhost:5432/blog"
 db.default.driver=org.postgresql.Driver
 ```
 
-* Add `compass` and `foundation` gems
+* In `public` rename `images` to `img`, `javascripts` to `js` and `stylesheets` to `css`
 * Add `.bowerrc` in the project route:
 
 ```json
@@ -85,7 +114,8 @@ module.exports = function(grunt) {
         compass: {
             dist: {
                 options: {
-                    require: ['compass', 'zurb-foundation'],
+                    require: ['compass'],
+                    importPath: 'public/components/foundation/scss',
                     sassDir: 'src/scss',
                     cssDir: 'public/css'
                 }
@@ -136,40 +166,110 @@ module.exports = function(grunt) {
 ```
 
 * Create a `src` directory and add `scss` and `js` directories to it
-* In `src/js` create `controllers`, `directives`, `filters`, and `services` directories
-* Copy contents of `public/components/foundation/scss` into `src/scss`
-* Rename `src/scss/foundation.scss` to `src/scss/_foundation.scss` and `src/scss/normalize.scss` to `src/scss/_normalize.scss`
-* Create `Dependencies.scala`:
+* Add `main.scss` to `src/scss`:
 
-```scala
-import sbt._
+```scss
+// Make sure the charset is set appropriately
+@charset "UTF-8";
 
-object Version {
-  val scala         = "2.10.3"
-  val postgresql    = "9.1-901.jdbc4"
-}
+// Set some colors
+$primary-color: #88D21E;
+$secondary-color: #727272;
 
-object Library {
-  val postgresql    = "postgresql"    % "postgresql"    % Version.postgresql
-}
-
-object Dependencies {
-  import Library._
-
-  val app = List(
-    postgresql
-  )
-}
+// Import normalize and foundation to keep from needing multiple CSS files
+@import "normalize",
+        "foundation";
 ```
 
-* Add the following to `build.sbt`:
+* In `src/js` create `controllers`, `directives`, `filters`, and `services` directories
+* In `src/js` add `app.js`:
 
-```sbt
-libraryDependencies ++= Dependencies.app
+```javascript
+'use strict';
+
+var app = angular.module('app', ['ngRoute', 'ngSanitize']);
+
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    $routeProvider.when('/', {
+        templateUrl: '/list'
+    }).otherwise({
+        redirectTo: '/'
+    });
+
+    $locationProvider.html5Mode(true).hashPrefix('!');
+}]);
 ```
 
 * Update `app/views/main.scala.html`:
 
 ```html
+@(title: String)(content: Html)
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js oldie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js oldie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js oldie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>Kent English: @title</title>
+
+    <link rel="stylesheet" href="@routes.Assets.at("css/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("img/favicon.png")">
+
+    <script src="@routes.Assets.at("components/modernizr/modernizr.js")"></script>
+  </head>
+  <body data-ng-app="app">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    @content
+
+    <script src="@routes.Assets.at("components/jquery/jquery.min.js")"></script>
+    <script src="@routes.Assets.at("components/foundation/js/foundation.min.js")"></script>
+    <script src="@routes.Assets.at("components/angular/angular.min.js")"></script>
+    <script src="@routes.Assets.at("components/angular-route/angular-route.min.js")"></script>
+    <script src="@routes.Assets.at("components/angular-sanitize/angular-sanitize.min.js")"></script>
+    <script src="@routes.Assets.at("js/app.js")"></script>
+    <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+  </body>
+</html>
+
+```
+
+* Update `app/views/index.scala.html`:
+
+```html
+@(message: String)
+
+@main("Posts") {
+
+    <div data-ng-view></div>
+
+}
+
+```
+
+* In the project root, run the following to generate the JavaScript and CSS files:
+
+```bash
+grunt
+```
+
+* Separately, also in the project root, run the application:
+
+```bash
+play run
 ```

@@ -1,7 +1,11 @@
 // Make sure the charset is set appropriately
 @charset "UTF-8";
 
-@import "foundation/settings";
+// Set some colors
+$primary-color: #88D21E;
+$secondary-color: #727272;
 
+// Import normalize and foundation to keep from needing multiple CSS files
 @import "normalize",
         "foundation";
+

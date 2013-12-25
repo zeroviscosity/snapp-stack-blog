@@ -20,7 +20,8 @@ module.exports = function(grunt) {
         compass: {
             dist: {
                 options: {
-                    require: ['compass', 'foundation'],
+                    require: ['compass'],
+                    importPath: 'public/components/foundation/scss',
                     sassDir: 'src/scss',
                     cssDir: 'public/css'
                 }
