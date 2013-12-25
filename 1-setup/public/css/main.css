@@ -8126,7 +8126,7 @@ th.hide-for-touch {
 }
 
 /* line 15, ../../src/scss/main.scss */
-html, body, .full-height {
+html, body {
   height: 100%;
   overflow-y: auto;
 }
@@ -8134,38 +8134,40 @@ html, body, .full-height {
 /* line 20, ../../src/scss/main.scss */
 nav {
   background-color: #727272;
-  float: left;
-  width: 240px;
+  height: 80px;
 }
-/* line 24, ../../src/scss/main.scss */
-nav .logo-top {
+/* line 23, ../../src/scss/main.scss */
+nav .zv-logo-top {
   background-color: #88d21e;
-  height: 70px;
+  height: 35px;
   position: relative;
 }
-/* line 28, ../../src/scss/main.scss */
-nav .logo-top .logo {
-  background: transparent url(/assets/img/logo.png) no-repeat left top;
-  height: 120px;
-  left: 60px;
+/* line 27, ../../src/scss/main.scss */
+nav .zv-logo-top .zv-logo {
+  background: transparent url(/assets/img/logo-60.png) no-repeat left top;
+  height: 60px;
+  left: 30px;
   position: absolute;
-  top: 20px;
-  width: 120px;
+  top: 10px;
+  width: 60px;
 }
-/* line 37, ../../src/scss/main.scss */
-nav .logo-bottom {
+/* line 36, ../../src/scss/main.scss */
+nav .zv-logo-bottom {
   background-color: #efefef;
-  height: 20px;
+  height: 10px;
 }
-/* line 41, ../../src/scss/main.scss */
-nav .zv-side-nav {
-  border-top: 0.0625rem solid #575757;
+/* line 40, ../../src/scss/main.scss */
+nav .zv-nav {
   list-style-type: none;
-  margin: 5rem 0 0.875rem 0;
+  margin: 0 0 0 6.25rem;
   padding: 0;
 }
-/* line 47, ../../src/scss/main.scss */
-nav .zv-side-nav li a {
+/* line 44, ../../src/scss/main.scss */
+nav .zv-nav li {
+  float: left;
+}
+/* line 46, ../../src/scss/main.scss */
+nav .zv-nav li a {
   -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -8178,13 +8180,14 @@ nav .zv-side-nav li a {
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
-  border-bottom: 0.0625rem solid #575757;
+  background-color: #88d21e;
   color: #efefef;
   display: block;
+  margin: 0 0.625rem 0 0;
   padding: 0.3125rem 0.5rem 0.3125rem 0.5rem;
 }
 /* line 55, ../../src/scss/main.scss */
-nav .zv-side-nav li a:hover {
+nav .zv-nav li a:hover {
   background-color: #575757;
   color: #88d21e;
 }
@@ -8200,9 +8203,82 @@ footer {
 
 /* line 72, ../../src/scss/main.scss */
 .container {
+  height: 100%;
+  overflow-y: auto;
   position: relative;
 }
-/* line 74, ../../src/scss/main.scss */
+/* line 76, ../../src/scss/main.scss */
 .container > div {
   padding: 0 40px 20px 40px;
+}
+
+@media only screen and (min-width: 40.063em) {
+  /* line 82, ../../src/scss/main.scss */
+  nav {
+    float: left;
+    height: 100%;
+    overflow-y: auto;
+    width: 120px;
+  }
+  /* line 87, ../../src/scss/main.scss */
+  nav .zv-logo-top {
+    background-color: #88d21e;
+    height: 35px;
+    position: relative;
+  }
+  /* line 91, ../../src/scss/main.scss */
+  nav .zv-logo-top .zv-logo {
+    background: transparent url(/assets/img/logo-60.png) no-repeat left top;
+    height: 60px;
+    left: 30px;
+    position: absolute;
+    top: 10px;
+    width: 60px;
+  }
+  /* line 100, ../../src/scss/main.scss */
+  nav .zv-logo-bottom {
+    background-color: #efefef;
+    height: 10px;
+  }
+  /* line 104, ../../src/scss/main.scss */
+  nav .zv-nav {
+    border-top: 0.0625rem solid #575757;
+    margin: 2.5rem 0 0.4375rem 0;
+  }
+  /* line 107, ../../src/scss/main.scss */
+  nav .zv-nav li {
+    float: none;
+  }
+  /* line 109, ../../src/scss/main.scss */
+  nav .zv-nav li a {
+    background-color: #727272;
+    border-bottom: 0.0625rem solid #575757;
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 120, ../../src/scss/main.scss */
+  nav {
+    width: 240px;
+  }
+  /* line 122, ../../src/scss/main.scss */
+  nav .zv-logo-top {
+    height: 70px;
+  }
+  /* line 124, ../../src/scss/main.scss */
+  nav .zv-logo-top .zv-logo {
+    background: transparent url(/assets/img/logo-120.png) no-repeat left top;
+    height: 120px;
+    left: 60px;
+    top: 20px;
+    width: 120px;
+  }
+  /* line 132, ../../src/scss/main.scss */
+  nav .zv-logo-bottom {
+    height: 20px;
+  }
+  /* line 135, ../../src/scss/main.scss */
+  nav .zv-nav {
+    margin: 5rem 0 0.875rem 0;
+  }
 }
