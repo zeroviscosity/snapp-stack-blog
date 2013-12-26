@@ -192,27 +192,10 @@ html, body {
 
 nav {
   background-color: $secondary-color;
-  height: 80px;
-  .zv-logo-top {
-    background-color: $primary-color;
-    height: 35px;
-    position: relative;
-    .zv-logo {
-      background: transparent url(/assets/img/logo-60.png) no-repeat left top;
-      height: 60px;
-      left: 30px;
-      position: absolute;
-      top: 10px;
-      width: 60px;
-    }
-  }
-  .zv-logo-bottom {
-    background-color: $off-white;
-    height: 10px;
-  }
+  height: 35px;
   .zv-nav {
     list-style-type: none;
-    margin: rem-calc(0 0 0 100);
+    margin: 0;
     padding: 0;
     li {
       float: left;
@@ -222,7 +205,7 @@ nav {
         @include transition-timing-function(linear);
         color: $off-white;
         display: block;
-        margin: 0 rem-calc(10) 0 0;
+        margin: 0 rem-calc(5);
         padding: rem-calc(5 8 5 8);
         &:hover {
           background-color: $tertiary-color;
@@ -260,26 +243,8 @@ footer {
     height: 100%;
     overflow-y: auto;
     width: 120px;
-    .zv-logo-top {
-      background-color: $primary-color;
-      height: 35px;
-      position: relative;
-      .zv-logo {
-        background: transparent url(/assets/img/logo-60.png) no-repeat left top;
-        height: 60px;
-        left: 30px;
-        position: absolute;
-        top: 10px;
-        width: 60px;
-      }
-    }
-    .zv-logo-bottom {
-      background-color: $off-white;
-      height: 10px;
-    }
     .zv-nav {
       border-top: rem-calc(1) solid $tertiary-color;
-      margin: rem-calc(40 0 7 0);
       li {
         float: none;
         a {
@@ -295,22 +260,6 @@ footer {
 @media #{$large-up} {
   nav {
     width: 240px;
-    .zv-logo-top {
-      height: 70px;
-      .zv-logo {
-        background: transparent url(/assets/img/logo-120.png) no-repeat left top;
-        height: 120px;
-        left: 60px;
-        top: 20px;
-        width: 120px;
-      }
-    }
-    .zv-logo-bottom {
-      height: 20px;
-    }
-    .zv-nav {
-      margin: rem-calc(80 0 14 0);
-    }
   }
 }
 ```
@@ -376,7 +325,7 @@ object Application extends Controller {
     <script src="@routes.Assets.at("components/modernizr/modernizr.js")"></script>
   </head>
   <body data-ng-app="app">
-    <!--[if lt IE 9]>
+    <!--[if lt IE 7]>
       <div class="panel browsehappy">
         You are using an <strong>outdated</strong> browser.
         Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.
@@ -384,10 +333,6 @@ object Application extends Controller {
     <![endif]-->
 
     <nav>
-      <div class="zv-logo-top">
-        <div class="zv-logo"></div>
-      </div>
-      <div class="zv-logo-bottom"></div>
       <ul class="zv-nav">
         <li><a href="/home">Home</a></li>
         <li><a href="/about">About</a></li>
