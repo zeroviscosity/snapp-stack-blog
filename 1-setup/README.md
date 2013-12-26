@@ -66,7 +66,7 @@ db.default.driver=org.postgresql.Driver
 
 ```bash
 bower init
-bower install angular angular-route angular-sanitize foundation showdown --save
+bower install angular angular-route angular-sanitize foundation highlightjs showdown --save
 ```
 
 * Add `package.json`:
