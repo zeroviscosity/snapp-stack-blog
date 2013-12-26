@@ -1,0 +1,50 @@
+@(title: String)(content: Html)
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js oldie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js oldie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js oldie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Kent English: @title</title>
+
+    <link rel="stylesheet" href="@routes.Assets.at("css/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("img/favicon.png")">
+
+    <script src="@routes.Assets.at("components/modernizr/modernizr.js")"></script>
+  </head>
+  <body data-ng-app="app">
+    <!--[if lt IE 7]>
+      <div class="panel browsehappy">
+        You are using an <strong>outdated</strong> browser.
+        Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.
+      </div>
+    <![endif]-->
+
+    <nav>
+      <ul class="zv-nav">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      @content
+      <footer class="text-center">
+        &copy;2013 Kent English
+      </footer>
+    </div>
+
+    <script src="@routes.Assets.at("components/jquery/jquery.min.js")"></script>
+    <script src="@routes.Assets.at("components/foundation/js/foundation.min.js")"></script>
+    <script src="@routes.Assets.at("components/showdown/compressed/showdown.js")"></script>
+    <script src="@routes.Assets.at("components/angular/angular.min.js")"></script>
+    <script src="@routes.Assets.at("components/angular-route/angular-route.min.js")"></script>
+    <script src="@routes.Assets.at("components/angular-sanitize/angular-sanitize.min.js")"></script>
+    <script src="@routes.Assets.at("js/app.js")"></script>
+  </body>
+</html>
