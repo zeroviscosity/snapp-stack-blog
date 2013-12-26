@@ -53,7 +53,7 @@ db.default.driver=org.postgresql.Driver
 ```
 
 * In `public` rename `images` to `img`, `javascripts` to `js` and `stylesheets` to `css`
-* IN `public` add a `templates` directory
+* In `public` add a `templates` directory
 * Add `.bowerrc` in the project route:
 
 ```json
@@ -182,7 +182,8 @@ $off-white: #efefef;
 // Import normalize and foundation to keep from needing multiple CSS files
 @import "compass/css3",
         "normalize",
-        "foundation";
+        "foundation",
+        "nav";
 
 html, body {
   background-color: $off-white;
@@ -190,6 +191,47 @@ html, body {
   overflow-y: auto;
 }
 
+footer {
+  bottom: 0;
+  font-size: rem-calc(12);
+  padding: 4px 0;
+  position: absolute;
+  width: 100%;
+}
+
+.panel.browsehappy {
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  > div {
+    padding: 0 10px 5px 10px;
+  }
+}
+
+@media #{$medium-up} {
+  .container {
+    > div {
+      padding: 0 20px 10px 20px;
+    }
+  }
+}
+
+@media #{$large-up} {
+  .container {
+    > div {
+      padding: 0 40px 20px 40px;
+    }
+  }
+}
+```
+
+* Add `_nav.scss` to `src/scss`:
+
+```scss
 nav {
   background-color: $secondary-color;
   height: 35px;
@@ -213,27 +255,6 @@ nav {
         }
       }
     }
-  }
-}
-
-footer {
-  bottom: 0;
-  font-size: rem-calc(12);
-  padding: 4px 0;
-  position: absolute;
-  width: 100%;
-}
-
-.panel.browsehappy {
-  margin: 0;
-}
-
-.container {
-  height: 100%;
-  overflow-y: auto;
-  position: relative;
-  > div {
-    padding: 0 40px 20px 40px;
   }
 }
 

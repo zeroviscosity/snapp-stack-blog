@@ -10,38 +10,13 @@ $off-white: #efefef;
 // Import normalize and foundation to keep from needing multiple CSS files
 @import "compass/css3",
         "normalize",
-        "foundation";
+        "foundation",
+        "nav";
 
 html, body {
   background-color: $off-white;
   height: 100%;
   overflow-y: auto;
-}
-
-nav {
-  background-color: $secondary-color;
-  height: 35px;
-  .zv-nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    li {
-      float: left;
-      a {
-        @include transition-property(all);
-        @include transition-duration(0.3s);
-        @include transition-timing-function(linear);
-        color: $off-white;
-        display: block;
-        margin: 0 rem-calc(5);
-        padding: rem-calc(5 8 5 8);
-        &:hover {
-          background-color: $tertiary-color;
-          color: $primary-color;
-        }
-      }
-    }
-  }
 }
 
 footer {
@@ -61,32 +36,22 @@ footer {
   overflow-y: auto;
   position: relative;
   > div {
-    padding: 0 40px 20px 40px;
+    padding: 0 10px 5px 10px;
   }
 }
 
 @media #{$medium-up} {
-  nav {
-    float: left;
-    height: 100%;
-    overflow-y: auto;
-    width: 120px;
-    .zv-nav {
-      border-top: rem-calc(1) solid $tertiary-color;
-      li {
-        float: none;
-        a {
-          background-color: $secondary-color;
-          border-bottom: rem-calc(1) solid $tertiary-color;
-          margin: 0;
-        }
-      }
+  .container {
+    > div {
+      padding: 0 20px 10px 20px;
     }
   }
 }
 
 @media #{$large-up} {
-  nav {
-    width: 240px;
+  .container {
+    > div {
+      padding: 0 40px 20px 40px;
+    }
   }
 }
