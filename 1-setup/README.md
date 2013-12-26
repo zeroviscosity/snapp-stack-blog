@@ -285,6 +285,21 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 }]);
 ```
 
+* Update `conf/routes`:
+
+```
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+GET     /about                      controllers.Application.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+```
+
 * Update `app/controllers/Application.scala`:
 
 ```scala
