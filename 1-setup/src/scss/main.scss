@@ -20,22 +20,23 @@ html, body {
 }
 
 footer {
-  bottom: 0;
   font-size: rem-calc(12);
-  padding: 4px 0;
-  position: absolute;
-  width: 100%;
+  margin: rem-calc(60) 0 rem-calc(10) 0;
 }
 
 .panel.browsehappy {
   margin: 0;
 }
 
+blockquote {
+  @extend .panel;
+}
+
 .container {
   height: 100%;
   overflow-y: auto;
-  position: relative;
   > div {
+    min-height: 640px;
     padding: 0 10px 5px 10px;
   }
 }

@@ -47,8 +47,11 @@ libraryDependencies ++= Dependencies.app
 
 ```scala
 db.default.user=pguser
+db.default.user=${?PG_USER}
 db.default.password=pgpassword
+db.default.password=${?PG_PASSWORD}
 db.default.url="jdbc:postgresql://localhost:5432/blog"
+db.default.url=${?PG_URL}
 db.default.driver=org.postgresql.Driver
 ```
 
@@ -192,22 +195,23 @@ html, body {
 }
 
 footer {
-  bottom: 0;
   font-size: rem-calc(12);
-  padding: 4px 0;
-  position: absolute;
-  width: 100%;
+  margin: rem-calc(60) 0 rem-calc(10) 0;
 }
 
 .panel.browsehappy {
   margin: 0;
 }
 
+blockquote {
+  @extend .panel;
+}
+
 .container {
   height: 100%;
   overflow-y: auto;
-  position: relative;
   > div {
+    min-height: 640px;
     padding: 0 10px 5px 10px;
   }
 }
@@ -361,7 +365,7 @@ object Application extends Controller {
     <script src="@routes.Assets.at("components/modernizr/modernizr.js")"></script>
   </head>
   <body data-ng-app="app">
-    <!--[if lt IE 7]>
+    <!--[if lt IE 9]>
       <div class="panel browsehappy">
         You are using an <strong>outdated</strong> browser.
         Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.
@@ -369,6 +373,10 @@ object Application extends Controller {
     <![endif]-->
 
     <nav>
+      <div class="zv-logo-top">
+        <div class="zv-logo"></div>
+      </div>
+      <div class="zv-logo-bottom"></div>
       <ul class="zv-nav">
         <li><a href="/home">Home</a></li>
         <li><a href="/about">About</a></li>
@@ -384,6 +392,7 @@ object Application extends Controller {
 
     <script src="@routes.Assets.at("components/jquery/jquery.min.js")"></script>
     <script src="@routes.Assets.at("components/foundation/js/foundation.min.js")"></script>
+    <script src="@routes.Assets.at("components/highlightjs/highlight.pack.js")"></script>
     <script src="@routes.Assets.at("components/showdown/compressed/showdown.js")"></script>
     <script src="@routes.Assets.at("components/angular/angular.min.js")"></script>
     <script src="@routes.Assets.at("components/angular-route/angular-route.min.js")"></script>
@@ -391,6 +400,7 @@ object Application extends Controller {
     <script src="@routes.Assets.at("js/app.js")"></script>
   </body>
 </html>
+
 ```
 
 * Update `app/views/index.scala.html`:
