@@ -4,6 +4,12 @@
   .post-title {
 
   }
+  .post-meta {
+    margin-bottom: rem-calc(10);
+    .post-date {
+      font-size: rem-calc(12);
+    }
+  }
   .post-content {
     margin: 0 0 rem-calc(10) 0;
     ul {
@@ -14,10 +20,23 @@
       margin: rem-calc(10) rem-calc(20) rem-calc(20) rem-calc(20);
     }
   }
-  .post-meta {
-    margin-bottom: rem-calc(10);
-    .post-date {
-      font-size: rem-calc(12);
+  .post-read-more {
+    display: none;
+  }
+  &.partial {
+    .post-content {
+      > * {
+        display: none;
+      }
+      > *:first-child {
+        display: block;
+      }
+      > *:nth-child(2) {
+        display: block;
+      }
+    }
+    .post-read-more {
+      display: block;
     }
   }
 }

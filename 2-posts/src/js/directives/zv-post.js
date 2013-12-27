@@ -1,7 +1,8 @@
 app.directive('zvPost', function() {
     return {
         scope: {
-            post: '='
+            post: '=',
+            mode: '@'
         },
         controller: [
             '$scope', '$timeout', 'markupService', function($scope, $timeout, markupService) {
@@ -26,7 +27,7 @@ app.directive('zvPost', function() {
                 '<div data-ng-switch-when="loading">' +
                     '<div data-zv-loading></div>' +
                 '</div>' +
-                '<div data-ng-switch-when="loaded" class="post">' +
+                '<div data-ng-switch-when="loaded" class="post" data-ng-class="mode">' +
                     '<h2 class="post-title">' +
                         '<a href="/posts/{{ post.id }}" data-ng-bind="post.title"></a>' +
                     '</h2>' +
@@ -34,6 +35,9 @@ app.directive('zvPost', function() {
                         '<div class="post-date" data-ng-bind="post.date | date:fullDate"></div>' +
                     '</div>' +
                     '<div class="post-content" data-ng-bind-html="post.content"></div>' +
+                    '<div class="post-read-more">' +
+                        '<h5><a href="/posts/{{ post.id }}">Continue reading...</a></h5>' +
+                    '</div>' +
                 '</div>' +
             '</div>'
     };
