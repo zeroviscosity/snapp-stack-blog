@@ -9,6 +9,10 @@ object Application extends Controller {
     Ok(views.html.index())
   }
 
+  def about = Action {
+    Ok(views.html.index())
+  }
+
   def post(id: String) = Action {
     Ok(views.html.index())
   }

@@ -24,12 +24,22 @@ footer {
   margin: rem-calc(60) 0 rem-calc(10) 0;
 }
 
-.panel.browsehappy {
-  margin: 0;
+a {
+  color: darken($primary-color, 10%);
+  &:visited {
+    color: darken($primary-color, 10%);
+  }
+  &:hover {
+    color: darken($primary-color, 20%);
+  }
 }
 
 blockquote {
   @extend .panel;
+}
+
+.panel.browsehappy {
+  margin: 0;
 }
 
 .container {

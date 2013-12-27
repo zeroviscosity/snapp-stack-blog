@@ -14,7 +14,7 @@ module.exports = function(grunt) {
                     'src/js/directives/*.js',
                     'src/js/filters/*.js'
                 ],
-                dest: 'public/js/app.js'
+                dest: 'public/javascripts/app.js'
             }
         },
         compass: {
@@ -23,19 +23,7 @@ module.exports = function(grunt) {
                     require: ['compass'],
                     importPath: 'public/components/foundation/scss',
                     sassDir: 'src/scss',
-                    cssDir: 'public/css'
-                }
-            }
-        },
-        uglify: {
-            dist: {
-                options: {
-                    mangle: false
-                },
-                files: {
-                    'public/js/app.min.js': [
-                        'public/js/app.js'
-                    ]
+                    cssDir: 'public/stylesheets'
                 }
             }
         },
@@ -59,13 +47,11 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', [
         'concat',
         'compass',
-        //'uglify',
         'watch'
     ]);
 };

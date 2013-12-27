@@ -6,7 +6,6 @@
         "grunt": "latest",
         "grunt-contrib-compass": "latest",
         "grunt-contrib-concat": "latest",
-        "grunt-contrib-uglify": "latest",
         "grunt-contrib-watch": "latest",
         "grunt-karma": "latest",
         "karma": "latest",

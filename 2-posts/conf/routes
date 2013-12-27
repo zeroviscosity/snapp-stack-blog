@@ -4,7 +4,7 @@
 
 # Angular Routes
 GET     /                           controllers.Application.index
-GET     /about                      controllers.Application.index
+GET     /about                      controllers.Application.about
 GET     /posts/:id                  controllers.Application.post(id: String)
 
 # Posts API
