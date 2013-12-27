@@ -9,6 +9,8 @@ import play.api.Logger
 import anorm._
 import anorm.SqlParser._
 
+import org.postgresql.util.PGobject
+
 import scala.language.postfixOps
 
 object PostStatus extends Enumeration {
@@ -30,14 +32,16 @@ case class Post(id: String,
 
 object Post {
 
-  implicit def rowToPostStatus: Column[PostStatus] = {
-    Column.nonNull[PostStatus] { (value, meta) =>
-      val MetaDataItem(qualified, nullable, clazz) = meta
-      value match {
+  implicit def rowToPostStatus: Column[PostStatus] = Column.nonNull { (value, meta) =>
+    val MetaDataItem(qualified, nullable, clazz) = meta
+    value match {
+      case p: PGobject => p.getValue match {
         case s: String => Right(PostStatus withName s)
-        case _ => Left(TypeDoesNotMatch("Cannot convert " + value + ":" + value.asInstanceOf[AnyRef].getClass +
-          " to PostStatus for column " + qualified))
+        case _ => Left(TypeDoesNotMatch("Cannot convert " + value + ":" +
+          value.asInstanceOf[AnyRef].getClass + " for column " + qualified))
       }
+      case _ => Left(TypeDoesNotMatch("Cannot convert " + value + ":" +
+        value.asInstanceOf[AnyRef].getClass + " for column " + qualified))
     }
   }
 
@@ -57,19 +61,19 @@ object Post {
     DB.withConnection { implicit connection =>
       SQL("""
             SELECT * FROM posts
-            WHERE status = {status}
+            WHERE status = {status}::post_status
             ORDER BY created DESC
             LIMIT {limit} OFFSET {offset}
           """
-      ).on('status -> status, 'offset -> offset, 'limit -> limit
+      ).on('status -> status.toString, 'offset -> offset, 'limit -> limit
         ).as(Post.simpleParser *)
     }
   }
 
-  def findById(id: String): Option[Post] = {
+  def findById(id: String, status: PostStatus): Option[Post] = {
     DB.withConnection { implicit connection =>
-      SQL("SELECT * FROM posts WHERE id = {id}").on(
-        'id -> id
+      SQL("SELECT * FROM posts WHERE id = {id} AND status = {status}::post_status").on(
+        'id -> id, 'status -> status.toString
       ).as(Post.simpleParser.singleOpt)
     }
   }
@@ -81,13 +85,13 @@ object Post {
       SQL(
         """
           INSERT INTO posts
-          VALUES ({id}, {title}, {content}, {status}, {created}, {updated}, {deleted})
+          VALUES ({id}, {title}, {content}, {status}::post_status, {created}, {updated})
         """
       ).on(
           'id -> post.id,
           'title -> post.title,
           'content -> post.content,
-          'status -> post.status,
+          'status -> post.status.toString,
           'created -> post.created,
           'updated -> post.updated
         ).executeUpdate()
@@ -101,25 +105,22 @@ object Post {
       SQL(
         """
           UPDATE posts
-          SET updated = {updated}, title = {title}, content = {content}, status = {status}
+          SET updated = {updated}, title = {title}, content = {content}, status = {status}::post_status
           WHERE id = {id}
         """).on(
           'id -> post.id,
           'updated -> updated,
           'title -> post.title,
           'content -> post.content,
-          'status -> post.status
+          'status -> post.status.toString
         ).executeUpdate()
     }
   }
 
   def delete(id: String) {
     DB.withConnection { implicit connection =>
-      val deleted = Some(new Date())
-
       SQL("UPDATE posts SET status = 'Removed' WHERE id = {id}").on(
-        'id -> id,
-        'deleted -> deleted
+        'id -> id
       ).executeUpdate()
     }
   }

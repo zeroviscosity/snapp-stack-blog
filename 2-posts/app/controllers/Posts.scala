@@ -2,17 +2,22 @@ package controllers
 
 import play.api.data._
 import play.api.data.Forms._
-
 import play.api.mvc._
 import play.api.mvc.Controller
 import play.api.libs.json._
-
 import play.api.Logger
+
+import scala.util.{Try, Success, Failure}
 
 import models.{Post, PostStatus}
 import models.PostStatus._
 
+case class ActionResponse(status: String, message: Option[String] = None)
+
 object Posts extends Controller {
+
+  def error(msg: String) = BadRequest(Json.toJson(Map("error" -> msg)))
+  def success() = Ok(Json.toJson(Map("status" -> "ok")))
 
   implicit object PostWrites extends Writes[Post] {
     def writes(p: Post) = Json.obj(
@@ -25,9 +30,15 @@ object Posts extends Controller {
     )
   }
 
-  def list = Action {
+  def posts = Action {
     val posts = Post.findAll(Published, 0, 10).map(Json.toJson(_))
     Ok(Json.toJson(posts))
+  }
+
+  def post(id: String) = Action {
+    Post.findById(id, Published).map { post =>
+      Ok(Json.toJson(post))
+    }.getOrElse(NotFound)
   }
 
   def drafts = Action {
@@ -35,8 +46,8 @@ object Posts extends Controller {
     Ok(Json.toJson(posts))
   }
 
-  def single(id: String) = Action {
-    Post.findById(id).map { post =>
+  def draft(id: String) = Action {
+    Post.findById(id, Draft).map { post =>
       Ok(Json.toJson(post))
     }.getOrElse(NotFound)
   }
@@ -52,44 +63,35 @@ object Posts extends Controller {
 
   def add = Action { implicit request =>
     Logger.info("Add request")
+
     postForm.bindFromRequest.fold(
-    errors => BadRequest,
-    {
-      case (id, title, content, status) =>
-        val post = Post(id, title, content, PostStatus withName status)
-        Logger.info(post.title)
-        Post.create(post)
-        Ok("Added post")
-    }
+      errors => BadRequest("Could not create post"), {
+        case (id, title, content, status) =>
+          Post.create(Post(id, title, content, PostStatus withName status))
+          success()
+      }
     )
   }
 
   def update = Action { implicit request =>
     Logger.info("Update request")
+
     postForm.bindFromRequest.fold(
-    errors => BadRequest,
-    {
-      case (id, title, content, status) =>
-        Post.update(
-          Post(id, title, content, PostStatus withName status)
-        )
-        Ok("Updated post")
-    }
+      errors => BadRequest("Could not update post"),{
+        case (id, title, content, status) =>
+          Post.update(Post(id, title, content, PostStatus withName status))
+          success()
+      }
     )
   }
 
   def delete(id: String) = Action {
     Logger.info("Delete requested")
-    try {
+    Try {
       Post.delete(id)
-      Ok("Deleted")
-    }
-    catch {
-      case e:IllegalArgumentException => BadRequest("Post not found")
-      case e:Exception => {
-        Logger.info("exception = %s" format e)
-        BadRequest("Invalid Id")
-      }
+    } match {
+      case Success(result) => success()
+      case Failure(e) => error(e.getMessage)
     }
   }
 

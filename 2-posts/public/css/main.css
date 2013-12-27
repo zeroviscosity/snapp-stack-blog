@@ -5285,7 +5285,7 @@ ul.pagination li {
 
 /* Panels */
 /* line 70, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel {
+.panel, blockquote {
   border-style: solid;
   border-width: 1px;
   border-color: #d9d9d9;
@@ -5294,28 +5294,28 @@ ul.pagination li {
   background: #f2f2f2;
 }
 /* line 48, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel > :first-child {
+.panel > :first-child, blockquote > :first-child {
   margin-top: 0;
 }
 /* line 49, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel > :last-child {
+.panel > :last-child, blockquote > :last-child {
   margin-bottom: 0;
 }
 /* line 54, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p {
+.panel h1, blockquote h1, .panel h2, blockquote h2, .panel h3, blockquote h3, .panel h4, blockquote h4, .panel h5, blockquote h5, .panel h6, blockquote h6, .panel p, blockquote p {
   color: #333333;
 }
 /* line 58, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6 {
+.panel h1, blockquote h1, .panel h2, blockquote h2, .panel h3, blockquote h3, .panel h4, blockquote h4, .panel h5, blockquote h5, .panel h6, blockquote h6 {
   line-height: 1;
   margin-bottom: 0.625rem;
 }
 /* line 60, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel h1.subheader, .panel h2.subheader, .panel h3.subheader, .panel h4.subheader, .panel h5.subheader, .panel h6.subheader {
+.panel h1.subheader, blockquote h1.subheader, .panel h2.subheader, blockquote h2.subheader, .panel h3.subheader, blockquote h3.subheader, .panel h4.subheader, blockquote h4.subheader, .panel h5.subheader, blockquote h5.subheader, .panel h6.subheader, blockquote h6.subheader {
   line-height: 1.4;
 }
 /* line 72, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel.callout {
+.panel.callout, blockquote.callout {
   border-style: solid;
   border-width: 1px;
   border-color: #e9f9d2;
@@ -5324,32 +5324,32 @@ ul.pagination li {
   background: white;
 }
 /* line 48, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel.callout > :first-child {
+.panel.callout > :first-child, blockquote.callout > :first-child {
   margin-top: 0;
 }
 /* line 49, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel.callout > :last-child {
+.panel.callout > :last-child, blockquote.callout > :last-child {
   margin-bottom: 0;
 }
 /* line 54, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel.callout h1, .panel.callout h2, .panel.callout h3, .panel.callout h4, .panel.callout h5, .panel.callout h6, .panel.callout p {
+.panel.callout h1, blockquote.callout h1, .panel.callout h2, blockquote.callout h2, .panel.callout h3, blockquote.callout h3, .panel.callout h4, blockquote.callout h4, .panel.callout h5, blockquote.callout h5, .panel.callout h6, blockquote.callout h6, .panel.callout p, blockquote.callout p {
   color: #333333;
 }
 /* line 58, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel.callout h1, .panel.callout h2, .panel.callout h3, .panel.callout h4, .panel.callout h5, .panel.callout h6 {
+.panel.callout h1, blockquote.callout h1, .panel.callout h2, blockquote.callout h2, .panel.callout h3, blockquote.callout h3, .panel.callout h4, blockquote.callout h4, .panel.callout h5, blockquote.callout h5, .panel.callout h6, blockquote.callout h6 {
   line-height: 1;
   margin-bottom: 0.625rem;
 }
 /* line 60, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel.callout h1.subheader, .panel.callout h2.subheader, .panel.callout h3.subheader, .panel.callout h4.subheader, .panel.callout h5.subheader, .panel.callout h6.subheader {
+.panel.callout h1.subheader, blockquote.callout h1.subheader, .panel.callout h2.subheader, blockquote.callout h2.subheader, .panel.callout h3.subheader, blockquote.callout h3.subheader, .panel.callout h4.subheader, blockquote.callout h4.subheader, .panel.callout h5.subheader, blockquote.callout h5.subheader, .panel.callout h6.subheader, blockquote.callout h6.subheader {
   line-height: 1.4;
 }
 /* line 74, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel.callout a {
+.panel.callout a, blockquote.callout a {
   color: #88d21e;
 }
 /* line 79, ../components/foundation/scss/foundation/components/_panels.scss */
-.panel.radius {
+.panel.radius, blockquote.radius {
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
@@ -8125,29 +8125,394 @@ th.hide-for-touch {
   display: table-cell !important;
 }
 
-/* line 15, ../../src/scss/main.scss */
-html, body {
-  background-color: #efefef;
-  height: 100%;
-  overflow-y: auto;
+/**
+ * Obsidian style
+ * ported by Alexander Marenin (http://github.com/ioncreature)
+ */
+/* line 6, ../../src/scss/_highlight.scss */
+pre code {
+  display: block;
+  padding: 0.5em;
+  background: #282B2E;
 }
 
-/* line 21, ../../src/scss/main.scss */
+/* line 20, ../../src/scss/_highlight.scss */
+pre .keyword,
+pre .literal,
+pre .change,
+pre .winutils,
+pre .flow,
+pre .lisp .title,
+pre .clojure .built_in,
+pre .nginx .title,
+pre .css .id,
+pre .tex .special {
+  color: #93C763;
+}
+
+/* line 24, ../../src/scss/_highlight.scss */
+pre .number {
+  color: #FFCD22;
+}
+
+/* line 28, ../../src/scss/_highlight.scss */
+pre code {
+  color: #E0E2E4;
+}
+
+/* line 33, ../../src/scss/_highlight.scss */
+pre .css .tag,
+pre .css .pseudo {
+  color: #D0D2B5;
+}
+
+/* line 38, ../../src/scss/_highlight.scss */
+pre .attribute,
+pre code .constant {
+  color: #668BB0;
+}
+
+/* line 42, ../../src/scss/_highlight.scss */
+pre .xml .attribute {
+  color: #B3B689;
+}
+
+/* line 46, ../../src/scss/_highlight.scss */
+pre .xml .tag .value {
+  color: #E8E2B7;
+}
+
+/* line 52, ../../src/scss/_highlight.scss */
+pre .code,
+pre .class .title,
+pre .header {
+  color: white;
+}
+
+/* line 57, ../../src/scss/_highlight.scss */
+pre .class,
+pre .hexcolor {
+  color: #93C763;
+}
+
+/* line 61, ../../src/scss/_highlight.scss */
+pre .regexp {
+  color: #D39745;
+}
+
+/* line 66, ../../src/scss/_highlight.scss */
+pre .at_rule,
+pre .at_rule .keyword {
+  color: #A082BD;
+}
+
+/* line 70, ../../src/scss/_highlight.scss */
+pre .doctype {
+  color: #557182;
+}
+
+/* line 101, ../../src/scss/_highlight.scss */
+pre .link_url,
+pre .tag,
+pre .tag .title,
+pre .bullet,
+pre .subst,
+pre .emphasis,
+pre .haskell .type,
+pre .preprocessor,
+pre .pragma,
+pre .ruby .class .parent,
+pre .built_in,
+pre .sql .aggregate,
+pre .django .template_tag,
+pre .django .variable,
+pre .smalltalk .class,
+pre .javadoc,
+pre .django .filter .argument,
+pre .smalltalk .localvars,
+pre .smalltalk .array,
+pre .attr_selector,
+pre .pseudo,
+pre .addition,
+pre .stream,
+pre .envvar,
+pre .apache .tag,
+pre .apache .cbracket,
+pre .tex .command,
+pre .prompt {
+  color: #8CBBAD;
+}
+
+/* line 105, ../../src/scss/_highlight.scss */
+pre .string {
+  color: #EC7600;
+}
+
+/* line 119, ../../src/scss/_highlight.scss */
+pre .comment,
+pre .java .annotation,
+pre .blockquote,
+pre .horizontal_rule,
+pre .python .decorator,
+pre .template_comment,
+pre .pi,
+pre .deletion,
+pre .shebang,
+pre .apache .sqbracket,
+pre .tex .formula {
+  color: #818E96;
+}
+
+/* line 142, ../../src/scss/_highlight.scss */
+pre .keyword,
+pre .literal,
+pre .css .id,
+pre .phpdoc,
+pre .title,
+pre .header,
+pre .haskell .type,
+pre .vbscript .built_in,
+pre .sql .aggregate,
+pre .rsl .built_in,
+pre .smalltalk .class,
+pre .diff .header,
+pre .chunk,
+pre .winutils,
+pre .bash .variable,
+pre .apache .tag,
+pre .tex .special,
+pre .request,
+pre .at_rule .keyword,
+pre .status {
+  font-weight: bold;
+}
+
+/* line 152, ../../src/scss/_highlight.scss */
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  opacity: 0.5;
+}
+
+/* line 1, ../../src/scss/_loading.scss */
+.zv-loading-wrapper {
+  height: 20px;
+  margin: 100px auto;
+  position: relative;
+  width: 256px;
+}
+
+/* line 8, ../../src/scss/_loading.scss */
+.zv-loading {
+  background-color: #88D21E;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  -moz-border-radius: 10px;
+  -moz-animation-name: zv-loading-bounce;
+  -moz-animation-duration: 1.3s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: linear;
+  -webkit-border-radius: 10px;
+  -webkit-animation-name: zv-loading-bounce;
+  -webkit-animation-duration: 1.3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: linear;
+  -ms-border-radius: 10px;
+  -ms-animation-name: zv-loading-bounce;
+  -ms-animation-duration: 1.3s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-direction: linear;
+  -o-border-radius: 10px;
+  -o-animation-name: zv-loading-bounce;
+  -o-animation-duration: 1.3s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-direction: linear;
+  border-radius: 10px;
+  animation-name: zv-loading-bounce;
+  animation-duration: 1.3s;
+  animation-iteration-count: infinite;
+  animation-direction: linear;
+}
+
+/* line 42, ../../src/scss/_loading.scss */
+.zv-loading-1 {
+  -moz-animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  -ms-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+/* line 50, ../../src/scss/_loading.scss */
+.zv-loading-2 {
+  -moz-animation-delay: 0.13s;
+  -webkit-animation-delay: 0.13s;
+  -ms-animation-delay: 0.13s;
+  -o-animation-delay: 0.13s;
+  animation-delay: 0.13s;
+}
+
+/* line 58, ../../src/scss/_loading.scss */
+.zv-loading-3 {
+  -moz-animation-delay: 0.26s;
+  -webkit-animation-delay: 0.26s;
+  -ms-animation-delay: 0.26s;
+  -o-animation-delay: 0.26s;
+  animation-delay: 0.26s;
+}
+
+/* line 66, ../../src/scss/_loading.scss */
+.zv-loading-4 {
+  -moz-animation-delay: 0.39s;
+  -webkit-animation-delay: 0.39s;
+  -ms-animation-delay: 0.39s;
+  -o-animation-delay: 0.39s;
+  animation-delay: 0.39s;
+}
+
+@-moz-keyframes zv-loading-bounce {
+  /* line 75, ../../src/scss/_loading.scss */
+  0% {
+    left: 0px;
+    background-color: #88D21E;
+  }
+
+  /* line 80, ../../src/scss/_loading.scss */
+  50% {
+    left: 236px;
+    background-color: #727272;
+  }
+
+  /* line 85, ../../src/scss/_loading.scss */
+  100% {
+    left: 0px;
+    background-color: #88D21E;
+  }
+}
+
+@-webkit-keyframes zv-loading-bounce {
+  /* line 92, ../../src/scss/_loading.scss */
+  0% {
+    left: 0px;
+    background-color: #88D21E;
+  }
+
+  /* line 97, ../../src/scss/_loading.scss */
+  50% {
+    left: 236px;
+    background-color: #727272;
+  }
+
+  /* line 102, ../../src/scss/_loading.scss */
+  100% {
+    left: 0px;
+    background-color: #88D21E;
+  }
+}
+
+@-ms-keyframes zv-loading-bounce {
+  /* line 109, ../../src/scss/_loading.scss */
+  0% {
+    left: 0px;
+    background-color: #88D21E;
+  }
+
+  /* line 113, ../../src/scss/_loading.scss */
+  50% {
+    left: 236px;
+    background-color: #727272;
+  }
+
+  /* line 117, ../../src/scss/_loading.scss */
+  100% {
+    left: 0px;
+    background-color: #88D21E;
+  }
+}
+
+@-o-keyframes zv-loading-bounce {
+  /* line 124, ../../src/scss/_loading.scss */
+  0% {
+    left: 0px;
+    background-color: #88D21E;
+  }
+
+  /* line 128, ../../src/scss/_loading.scss */
+  50% {
+    left: 236px;
+    background-color: #727272;
+  }
+
+  /* line 132, ../../src/scss/_loading.scss */
+  100% {
+    left: 0px;
+    background-color: #88D21E;
+  }
+}
+
+@keyframes zv-loading-bounce {
+  /* line 139, ../../src/scss/_loading.scss */
+  0% {
+    left: 0px;
+    background-color: #88D21E;
+  }
+
+  /* line 143, ../../src/scss/_loading.scss */
+  50% {
+    left: 236px;
+    background-color: #727272;
+  }
+
+  /* line 147, ../../src/scss/_loading.scss */
+  100% {
+    left: 0px;
+    background-color: #88D21E;
+  }
+}
+
+/* line 1, ../../src/scss/_logo-nav.scss */
 nav {
   background-color: #727272;
-  height: 35px;
+  height: 80px;
 }
-/* line 24, ../../src/scss/main.scss */
+/* line 4, ../../src/scss/_logo-nav.scss */
+nav .zv-logo-top {
+  background-color: #88d21e;
+  height: 35px;
+  position: relative;
+}
+/* line 8, ../../src/scss/_logo-nav.scss */
+nav .zv-logo-top .zv-logo {
+  background: transparent url(/assets/img/logo-60.png) no-repeat left top;
+  height: 60px;
+  left: 30px;
+  position: absolute;
+  top: 10px;
+  width: 60px;
+}
+/* line 17, ../../src/scss/_logo-nav.scss */
+nav .zv-logo-bottom {
+  background-color: #efefef;
+  height: 10px;
+}
+/* line 21, ../../src/scss/_logo-nav.scss */
 nav .zv-nav {
   list-style-type: none;
-  margin: 0;
+  margin: 0 0 0 6.25rem;
   padding: 0;
 }
-/* line 28, ../../src/scss/main.scss */
+/* line 25, ../../src/scss/_logo-nav.scss */
 nav .zv-nav li {
   float: left;
 }
-/* line 30, ../../src/scss/main.scss */
+/* line 27, ../../src/scss/_logo-nav.scss */
 nav .zv-nav li a {
   -webkit-transition-property: all;
   -moz-transition-property: all;
@@ -8163,57 +8528,53 @@ nav .zv-nav li a {
   transition-timing-function: linear;
   color: #efefef;
   display: block;
-  margin: 0 0.3125rem;
+  margin: 0 0.625rem 0 0;
   padding: 0.3125rem 0.5rem 0.3125rem 0.5rem;
 }
-/* line 38, ../../src/scss/main.scss */
+/* line 35, ../../src/scss/_logo-nav.scss */
 nav .zv-nav li a:hover {
   background-color: #575757;
   color: #88d21e;
 }
 
-/* line 47, ../../src/scss/main.scss */
-footer {
-  bottom: 0;
-  font-size: 0.75rem;
-  padding: 4px 0;
-  position: absolute;
-  width: 100%;
-}
-
-/* line 55, ../../src/scss/main.scss */
-.panel.browsehappy {
-  margin: 0;
-}
-
-/* line 59, ../../src/scss/main.scss */
-.container {
-  height: 100%;
-  overflow-y: auto;
-  position: relative;
-}
-/* line 63, ../../src/scss/main.scss */
-.container > div {
-  padding: 0 40px 20px 40px;
-}
-
 @media only screen and (min-width: 40.063em) {
-  /* line 69, ../../src/scss/main.scss */
+  /* line 45, ../../src/scss/_logo-nav.scss */
   nav {
     float: left;
     height: 100%;
     overflow-y: auto;
     width: 120px;
   }
-  /* line 74, ../../src/scss/main.scss */
+  /* line 50, ../../src/scss/_logo-nav.scss */
+  nav .zv-logo-top {
+    background-color: #88d21e;
+    height: 35px;
+    position: relative;
+  }
+  /* line 54, ../../src/scss/_logo-nav.scss */
+  nav .zv-logo-top .zv-logo {
+    background: transparent url(/assets/img/logo-60.png) no-repeat left top;
+    height: 60px;
+    left: 30px;
+    position: absolute;
+    top: 10px;
+    width: 60px;
+  }
+  /* line 63, ../../src/scss/_logo-nav.scss */
+  nav .zv-logo-bottom {
+    background-color: #efefef;
+    height: 10px;
+  }
+  /* line 67, ../../src/scss/_logo-nav.scss */
   nav .zv-nav {
     border-top: 0.0625rem solid #575757;
+    margin: 2.5rem 0 0.4375rem 0;
   }
-  /* line 76, ../../src/scss/main.scss */
+  /* line 70, ../../src/scss/_logo-nav.scss */
   nav .zv-nav li {
     float: none;
   }
-  /* line 78, ../../src/scss/main.scss */
+  /* line 72, ../../src/scss/_logo-nav.scss */
   nav .zv-nav li a {
     background-color: #727272;
     border-bottom: 0.0625rem solid #575757;
@@ -8221,8 +8582,96 @@ footer {
   }
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 89, ../../src/scss/main.scss */
+  /* line 83, ../../src/scss/_logo-nav.scss */
   nav {
     width: 240px;
+  }
+  /* line 85, ../../src/scss/_logo-nav.scss */
+  nav .zv-logo-top {
+    height: 70px;
+  }
+  /* line 87, ../../src/scss/_logo-nav.scss */
+  nav .zv-logo-top .zv-logo {
+    background: transparent url(/assets/img/logo-120.png) no-repeat left top;
+    height: 120px;
+    left: 60px;
+    top: 20px;
+    width: 120px;
+  }
+  /* line 95, ../../src/scss/_logo-nav.scss */
+  nav .zv-logo-bottom {
+    height: 20px;
+  }
+  /* line 98, ../../src/scss/_logo-nav.scss */
+  nav .zv-nav {
+    margin: 5rem 0 0.875rem 0;
+  }
+}
+/* line 1, ../../src/scss/_post.scss */
+.post {
+  border-bottom: 0.0625rem solid #575757;
+  margin: 0 0 0.625rem 0;
+}
+/* line 7, ../../src/scss/_post.scss */
+.post .post-content {
+  margin: 0 0 0.625rem 0;
+}
+/* line 9, ../../src/scss/_post.scss */
+.post .post-content ul {
+  margin-bottom: 0;
+}
+/* line 12, ../../src/scss/_post.scss */
+.post .post-content pre {
+  font-size: 0.8125rem;
+  margin: 0.625rem 1.25rem;
+}
+/* line 17, ../../src/scss/_post.scss */
+.post .post-meta {
+  margin-bottom: 0.625rem;
+}
+/* line 19, ../../src/scss/_post.scss */
+.post .post-meta .post-date {
+  font-size: 0.75rem;
+}
+
+/* line 19, ../../src/scss/main.scss */
+html, body {
+  background-color: #efefef;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* line 25, ../../src/scss/main.scss */
+footer {
+  font-size: 0.75rem;
+  margin: 3.75rem 0 0.625rem 0;
+}
+
+/* line 30, ../../src/scss/main.scss */
+.panel.browsehappy, blockquote.browsehappy {
+  margin: 0;
+}
+
+/* line 38, ../../src/scss/main.scss */
+.container {
+  height: 100%;
+  overflow-y: auto;
+}
+/* line 41, ../../src/scss/main.scss */
+.container > div {
+  min-height: 640px;
+  padding: 0 10px 5px 10px;
+}
+
+@media only screen and (min-width: 40.063em) {
+  /* line 49, ../../src/scss/main.scss */
+  .container > div {
+    padding: 0 20px 10px 20px;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 57, ../../src/scss/main.scss */
+  .container > div {
+    padding: 0 40px 20px 40px;
   }
 }
