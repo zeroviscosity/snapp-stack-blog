@@ -44,12 +44,13 @@ GET     /about                      controllers.Application.index
 GET     /posts/:id                  controllers.Application.post(id: String)
 
 # Posts API
-GET     /api/posts                  controllers.Posts.list
-GET     /api/posts/drafts           controllers.Posts.drafts
-GET     /api/posts/:id              controllers.Posts.single(id: String)
+GET     /api/posts                  controllers.Posts.posts
+GET     /api/posts/:id              controllers.Posts.post(id: String)
 POST    /api/posts                  controllers.Posts.add
 PUT     /api/posts                  controllers.Posts.update
 DELETE  /api/posts/:id              controllers.Posts.delete(id: String)
+GET     /api/drafts                 controllers.Posts.drafts
+GET     /api/drafts/:id             controllers.Posts.draft(id: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

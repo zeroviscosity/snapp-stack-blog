@@ -1,0 +1,23 @@
+.post {
+  border-bottom: rem-calc(1) solid $tertiary-color;
+  margin: 0 0 rem-calc(10) 0;
+  .post-title {
+
+  }
+  .post-content {
+    margin: 0 0 rem-calc(10) 0;
+    ul {
+      margin-bottom: 0;
+    }
+    pre {
+      font-size: rem-calc(13);
+      margin: rem-calc(10) rem-calc(20);
+    }
+  }
+  .post-meta {
+    margin-bottom: rem-calc(10);
+    .post-date {
+      font-size: rem-calc(12);
+    }
+  }
+}
