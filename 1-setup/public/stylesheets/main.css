@@ -8208,29 +8208,42 @@ footer {
 }
 
 /* line 27, ../../src/scss/main.scss */
+a {
+  color: #6ba518;
+}
+/* line 29, ../../src/scss/main.scss */
+a:visited {
+  color: #6ba518;
+}
+/* line 32, ../../src/scss/main.scss */
+a:hover {
+  color: #4e7911;
+}
+
+/* line 41, ../../src/scss/main.scss */
 .panel.browsehappy, blockquote.browsehappy {
   margin: 0;
 }
 
-/* line 35, ../../src/scss/main.scss */
+/* line 45, ../../src/scss/main.scss */
 .container {
   height: 100%;
   overflow-y: auto;
 }
-/* line 38, ../../src/scss/main.scss */
+/* line 48, ../../src/scss/main.scss */
 .container > div {
   min-height: 640px;
   padding: 0 10px 5px 10px;
 }
 
 @media only screen and (min-width: 40.063em) {
-  /* line 46, ../../src/scss/main.scss */
+  /* line 56, ../../src/scss/main.scss */
   .container > div {
     padding: 0 20px 10px 20px;
   }
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 54, ../../src/scss/main.scss */
+  /* line 64, ../../src/scss/main.scss */
   .container > div {
     padding: 0 40px 20px 40px;
   }
