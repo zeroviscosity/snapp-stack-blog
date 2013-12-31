@@ -8693,18 +8693,18 @@ a:hover {
 /* line 51, ../../src/scss/main.scss */
 .container > div {
   min-height: 640px;
-  padding: 0 10px 5px 10px;
+  padding: 5px 10px;
 }
 
 @media only screen and (min-width: 40.063em) {
   /* line 59, ../../src/scss/main.scss */
   .container > div {
-    padding: 0 20px 10px 20px;
+    padding: 10px 20px;
   }
 }
 @media only screen and (min-width: 64.063em) {
   /* line 67, ../../src/scss/main.scss */
   .container > div {
-    padding: 0 40px 20px 40px;
+    padding: 20px 40px;
   }
 }

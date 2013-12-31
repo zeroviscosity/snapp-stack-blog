@@ -50,14 +50,14 @@ blockquote {
   overflow-y: auto;
   > div {
     min-height: 640px;
-    padding: 0 10px 5px 10px;
+    padding: 5px 10px;
   }
 }
 
 @media #{$medium-up} {
   .container {
     > div {
-      padding: 0 20px 10px 20px;
+      padding: 10px 20px;
     }
   }
 }
@@ -65,7 +65,7 @@ blockquote {
 @media #{$large-up} {
   .container {
     > div {
-      padding: 0 40px 20px 40px;
+      padding: 20px 40px;
     }
   }
 }
