@@ -28,7 +28,7 @@ app.directive('zvPost', function() {
                     '<div data-ng-switch="mode" class="right">' +
                         '<div data-ng-switch-when="full">' +
                             '<iframe allowtransparency="true" frameborder="0" scrolling="no" ' +
-                                    'src="https://platform.twitter.com/widgets/tweet_button.html" ' +
+                                    'src="https://platform.twitter.com/widgets/tweet_button.html?via=kentenglish" ' +
                                     'style="width:130px; height:20px;"></iframe>' +
                         '</div>' +
                     '</div>' +
