@@ -83,6 +83,15 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         }
     };
 }]);
+;app.factory('markdown', [function() {
+    var converter = new Showdown.converter();
+
+    return {
+        convert: function(md) {
+            return converter.makeHtml(md);
+        }
+    };
+}]);
 ;app.factory('title', ['$window', function($window) {
     var base = 'Kent English: ';
 
@@ -189,10 +198,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             mode: '@'
         },
         controller: [
-            '$scope', '$timeout', function($scope, $timeout) {
+            '$scope', '$timeout', 'markdown', function($scope, $timeout, markdown) {
                 $scope.$watch('post', function() {
                     if (!!$scope.post && !!$scope.post.title) {
                         $scope.post.date = new Date($scope.post.created);
+                        $scope.post.html = markdown.convert($scope.post.md);
                         $timeout(function() {
                             angular.element('pre code').each(function(i, e) {
                                 hljs.highlightBlock(e)

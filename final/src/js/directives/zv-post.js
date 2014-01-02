@@ -5,10 +5,11 @@ app.directive('zvPost', function() {
             mode: '@'
         },
         controller: [
-            '$scope', '$timeout', function($scope, $timeout) {
+            '$scope', '$timeout', 'markdown', function($scope, $timeout, markdown) {
                 $scope.$watch('post', function() {
                     if (!!$scope.post && !!$scope.post.title) {
                         $scope.post.date = new Date($scope.post.created);
+                        $scope.post.html = markdown.convert($scope.post.md);
                         $timeout(function() {
                             angular.element('pre code').each(function(i, e) {
                                 hljs.highlightBlock(e)

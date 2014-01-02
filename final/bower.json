@@ -19,6 +19,7 @@
     "angular-route": "~1.2.6",
     "foundation": "~5.0.2",
     "angular-sanitize": "~1.2.6",
+    "showdown": "~0.3.1",
     "highlightjs": "~7.5.0"
   }
 }
