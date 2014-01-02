@@ -15,7 +15,7 @@ GET /snapshots/pages/:id                controllers.Snapshot.page(id: String)
 GET /snapshots/posts/:id                controllers.Snapshot.post(id: String)
 
 # API Routes
-POST    /api/entries                    controllers.Entries.add
+# POST    /api/entries                    controllers.Entries.add
 # PUT     /api/entries                    controllers.Entries.update
 # DELETE  /api/entries/:id                controllers.Entries.delete(id: String)
 # GET     /api/drafts/:id                 controllers.Entries.draft(id: String)
