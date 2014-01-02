@@ -9,9 +9,9 @@ import models.EntryStatus._
 
 object Snapshot extends Controller {
 
-  def index() = Action {
+  def posts() = Action {
     val entries = Entry.findAllByFormat(Post, Published, 0, 10000)
-    Ok(views.html.snapshots.index.render(entries.toList))
+    Ok(views.html.snapshots.posts.render(entries.toList))
   }
 
   def page(id: String) = Action {
