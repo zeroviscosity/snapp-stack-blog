@@ -7,6 +7,7 @@ GET     /                               controllers.Application.index
 GET     /posts                          controllers.Application.index
 GET     /pages/:id                      controllers.Application.page(id: String)
 GET     /posts/:id                      controllers.Application.post(id: String)
+GET     /rss.xml                        controllers.Application.rss
 GET     /sitemap.xml                    controllers.Application.sitemap
 
 # Snapshot Routes
