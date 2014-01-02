@@ -19,6 +19,6 @@ app.controller('PostsCtrl', function($scope, api, title) {
         });
     };
 
-    title.set('Blog');
+    title.set('Posts');
     $scope.load();
 });
