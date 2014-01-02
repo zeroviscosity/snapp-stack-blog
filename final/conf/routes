@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Angular Routes
+GET     /                               controllers.Application.index
+GET     /pages/:id                      controllers.Application.page(id: String)
+GET     /posts/:id                      controllers.Application.post(id: String)
+GET     /sitemap.xml                    controllers.Application.sitemap
+
+# Snapshot Routes
+GET /snapshots/                         controllers.Snapshot.index
+GET /snapshots/pages/:id                controllers.Snapshot.page(id: String)
+GET /snapshots/posts/:id                controllers.Snapshot.post(id: String)
+
+# API Routes
+POST    /api/entries                    controllers.Entries.add
+PUT     /api/entries                    controllers.Entries.update
+DELETE  /api/entries/:id                controllers.Entries.delete(id: String)
+GET     /api/drafts/:id                 controllers.Entries.draft(id: String)
+GET     /api/published/:id              controllers.Entries.published(id: String)
+GET     /api/drafts/:offset/:limit      controllers.Entries.drafts(offset: Int, limit: Int)
+GET     /api/posts/:offset/:limit       controllers.Entries.posts(offset: Int, limit: Int)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                   controllers.Assets.at(path="/public", file)

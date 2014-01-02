@@ -1,0 +1,13 @@
+<div data-ng-controller="PostsCtrl">
+  <div data-ng-repeat="post in posts" data-zv-post data-post="post" data-mode="partial"></div>
+  <div data-ng-switch="state">
+    <div data-ng-switch-when="loading">
+      <div data-zv-loading></div>
+    </div>
+    <div data-ng-switch-when="loaded">
+      <h4 class="text-center">
+        <a href="#" data-ng-click="load()" data-ng-show="more">Show More</a>
+      </h4>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+@(posts: List[models.Entry])
+
+@snapshot("Blog") {
+    <div>
+      @for(p <- posts) {
+      <div class="post partial">
+        <h2 class="post-title">
+          <a href="/posts/@p.id">@p.title</a>
+        </h2>
+        <div class="post-meta">
+          <div class="post-date">
+            @p.created.format("MMMM dd, yyyy")
+          </div>
+        </div>
+        <div class="post-content">
+          @Html(p.html)
+        </div>
+        <div class="post-read-more">
+          <h5><a href="/posts/@p.id">Continue reading...</a></h5>
+        </div>
+      </div>
+      }
+    </div>
+}

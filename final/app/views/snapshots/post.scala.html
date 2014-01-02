@@ -1,0 +1,21 @@
+@(entry: models.Entry)
+
+@snapshot(entry.title) {
+
+    <div>
+      <div class="post full">
+        <h2 class="post-title">
+          <a href="/posts/@entry.id">@entry.title</a>
+        </h2>
+        <div class="post-meta">
+          <div class="post-date">
+            @entry.created.format("MMMM dd, yyyy")
+          </div>
+        </div>
+        <div class="post-content">
+          @Html(entry.html)
+        </div>
+      </div>
+    </div>
+
+}

@@ -1,0 +1,74 @@
+// Make sure the charset is set appropriately
+@charset "UTF-8";
+
+// Set some colors
+$primary-color: #88D21E;
+$secondary-color: #727272;
+$tertiary-color: #575757;
+$off-white: #efefef;
+
+// Import normalize and foundation to keep from needing multiple CSS files
+@import "compass/css3",
+        "normalize",
+        "foundation",
+        "highlight",
+        "loading",
+        "logo-nav",
+        "post";
+
+html, body {
+  background-color: $off-white;
+  height: 100%;
+  overflow-y: auto;
+}
+
+footer {
+  font-size: rem-calc(12);
+  margin: rem-calc(60) 0 rem-calc(10) 0;
+}
+
+a {
+  color: darken($primary-color, 10%);
+  &:visited {
+    color: darken($primary-color, 10%);
+  }
+  &:hover {
+    color: darken($primary-color, 20%);
+  }
+}
+
+blockquote {
+  @extend .panel;
+}
+
+.panel.browsehappy {
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+  overflow-y: auto;
+  > div {
+    min-height: 640px;
+    padding: 5px 10px;
+  }
+}
+
+@media #{$medium-up} {
+  .container {
+    > div {
+      padding: 10px 20px;
+    }
+  }
+}
+
+@media #{$large-up} {
+  .container {
+    > div {
+      margin: 0 auto;
+      max-width: 1024px;
+      padding: 20px 40px;
+    }
+  }
+}
+

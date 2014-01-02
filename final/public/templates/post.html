@@ -1,0 +1,13 @@
+<div data-ng-controller="PostCtrl">
+  <div data-ng-switch="state">
+    <div data-ng-switch-when="loading">
+      <div data-zv-loading></div>
+    </div>
+    <div data-ng-switch-when="loaded">
+      <div data-zv-post data-post="post" data-mode="full"></div>
+      <div id="disqus_thread"></div>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div data-ng-controller="PageCtrl">
+  <div data-ng-switch="state">
+    <div data-ng-switch-when="loading">
+      <div data-zv-loading></div>
+    </div>
+    <div data-ng-switch-when="loaded" class="page">
+      <h2 class="page-title" data-ng-bind="page.title"></h2>
+      <div class="page-content" data-ng-bind-html="page.html"></div>
+    </div>
+  </div>
+</div>

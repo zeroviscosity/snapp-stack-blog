@@ -1,0 +1,14 @@
+@(entry: models.Entry)
+
+@snapshot(entry.title) {
+
+    <div>
+      <div class="page">
+        <h2 class="page-title">@entry.title</h2>
+        <div class="page-content">
+          @Html(entry.html)
+        </div>
+      </div>
+    </div>
+
+}
