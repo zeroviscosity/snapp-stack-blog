@@ -4,18 +4,19 @@
 <!--[if IE 7]>         <html class="no-js oldie lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js oldie lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="fragment" content="!" />
 
-    <title>Kent English: @title</title>
+  <title>@title</title>
 
-    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
-    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+  <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
+  <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
 
-    <script src="@routes.Assets.at("components/modernizr/modernizr.js")"></script>
+  <script src="@routes.Assets.at("components/modernizr/modernizr.js")"></script>
   </head>
   <body data-ng-app="app">
     <!--[if lt IE 9]>
@@ -25,11 +26,7 @@
       </div>
     <![endif]-->
 
-    <nav>
-      <div class="zv-logo-top">
-        <div class="zv-logo"></div>
-      </div>
-      <div class="zv-logo-bottom"></div>
+    <nav class="clearfix">
       <ul class="zv-nav">
         <li><a href="/">Home</a></li>
       </ul>
@@ -37,15 +34,11 @@
 
     <div class="container">
       @content
-      <footer class="text-center">
-        &copy;2013 Kent English
-      </footer>
     </div>
 
     <script src="@routes.Assets.at("components/jquery/jquery.min.js")"></script>
     <script src="@routes.Assets.at("components/foundation/js/foundation.min.js")"></script>
     <script src="@routes.Assets.at("components/highlightjs/highlight.pack.js")"></script>
-    <script src="@routes.Assets.at("components/showdown/compressed/showdown.js")"></script>
     <script src="@routes.Assets.at("components/angular/angular.min.js")"></script>
     <script src="@routes.Assets.at("components/angular-route/angular-route.min.js")"></script>
     <script src="@routes.Assets.at("components/angular-sanitize/angular-sanitize.min.js")"></script>

@@ -11,7 +11,10 @@ $off-white: #efefef;
 @import "compass/css3",
         "normalize",
         "foundation",
-        "nav";
+        "highlight",
+        "loading",
+        "logo-nav",
+        "post";
 
 html, body {
   background-color: $off-white;
@@ -62,6 +65,8 @@ blockquote {
 @media #{$large-up} {
   .container {
     > div {
+      margin: 0 auto;
+      max-width: 1024px;
       padding: 20px 40px;
     }
   }
