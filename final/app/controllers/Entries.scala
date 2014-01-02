@@ -88,7 +88,7 @@ object Entries extends Controller {
       errors => BadRequest("Could not update entry"),{
         case (id, format, title, md, status) =>
           val html = transformer.apply(md)
-          Entry.update(Entry(id, EntryFormat withName format, title, md, html.toString, EntryStatus withName status))
+          Entry.update(Entry(id, EntryFormat withName format, title, md, md, EntryStatus withName status))
           success()
       }
     )
