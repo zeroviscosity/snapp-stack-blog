@@ -27,7 +27,9 @@ app.directive('zvPost', function() {
                 '<div class="post-meta">' +
                     '<div data-ng-switch="mode" class="right">' +
                         '<div data-ng-switch-when="full">' +
-                            '<div data-zv-tweet-button></div>' +
+                            '<iframe allowtransparency="true" frameborder="0" scrolling="no" ' +
+                                    'src="https://platform.twitter.com/widgets/tweet_button.html" ' +
+                                    'style="width:130px; height:20px;"></iframe>' +
                         '</div>' +
                     '</div>' +
                     '<div class="post-date" data-ng-bind="post.date | date:fullDate"></div>' +

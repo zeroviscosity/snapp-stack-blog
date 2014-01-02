@@ -220,7 +220,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
                 '<div class="post-meta">' +
                     '<div data-ng-switch="mode" class="right">' +
                         '<div data-ng-switch-when="full">' +
-                            '<div data-zv-tweet-button></div>' +
+                            '<iframe allowtransparency="true" frameborder="0" scrolling="no" ' +
+                                    'src="https://platform.twitter.com/widgets/tweet_button.html" ' +
+                                    'style="width:130px; height:20px;"></iframe>' +
                         '</div>' +
                     '</div>' +
                     '<div class="post-date" data-ng-bind="post.date | date:fullDate"></div>' +
@@ -230,30 +232,5 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
                     '<h5><a href="/posts/{{ post.id }}">Continue reading...</a></h5>' +
                 '</div>' +
             '</div>'
-    };
-});
-
-;app.directive('zvTweetButton', function() {
-    return {
-        controller: [
-            '$scope', '$timeout', function($scope, $timeout) {
-                $timeout(function() {
-                    !function(d,s,id){
-                        var js,
-                            fjs=d.getElementsByTagName(s)[0],
-                            p=/^http:/.test(d.location)?'http':'https';
-                        if(!d.getElementById(id)){
-                            js=d.createElement(s);
-                            js.id=id;
-                            js.src=p+'://platform.twitter.com/widgets.js';
-                            fjs.parentNode.insertBefore(js,fjs);
-                        }
-                    }(document, 'script', 'twitter-wjs');
-
-                });
-            }
-        ],
-        template:
-            '<a href="https://twitter.com/share" class="twitter-share-button" data-via="kentenglish">Tweet</a>'
     };
 });
