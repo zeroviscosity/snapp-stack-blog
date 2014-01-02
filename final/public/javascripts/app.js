@@ -176,7 +176,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         });
     };
 
-    title.set('Blog');
+    title.set('Posts');
     $scope.load();
 });
 ;app.directive('zvLoading', function() {

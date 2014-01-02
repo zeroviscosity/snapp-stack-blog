@@ -76,7 +76,7 @@ object Entries extends Controller {
           Logger.info(id)
           val html = transformer.apply(md)
           Logger.info(html)
-          Entry.create(Entry(id, EntryFormat withName format, title, md, html.toString, EntryStatus withName status))
+          Entry.create(Entry(id, EntryFormat withName format, title, md, md, EntryStatus withName status))
           success()
       }
     )
