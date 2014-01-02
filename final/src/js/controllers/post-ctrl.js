@@ -13,6 +13,8 @@ app.controller('PostCtrl', function($scope, $routeParams, $timeout, api, title) 
             $scope.state = 'loaded';
 
             $timeout(function() {
+                gapi.plusone.render('gplus-button');
+
                 DISQUS.reset({
                   reload: true,
                   config: function () {
@@ -20,7 +22,7 @@ app.controller('PostCtrl', function($scope, $routeParams, $timeout, api, title) 
                     this.page.title = title.get();
                     this.page.url = 'http://kentenglish.ca/posts/' + $routeParams.id;
                   }
-                }, 1000);
+                });
             });
         }, function(reason) {
             console.log('Failed to retrieve post: ' + reason);

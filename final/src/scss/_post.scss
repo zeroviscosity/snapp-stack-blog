@@ -5,9 +5,9 @@
 
   }
   .post-meta {
-    margin-bottom: rem-calc(10);
+    margin: rem-calc(10) 0 rem-calc(20) 0;
     .post-date {
-      font-size: rem-calc(12);
+      color: $secondary-color;
     }
   }
   .post-content {

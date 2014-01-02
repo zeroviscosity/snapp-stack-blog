@@ -139,6 +139,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             $scope.state = 'loaded';
 
             $timeout(function() {
+                gapi.plusone.render('gplus-button');
+
                 DISQUS.reset({
                   reload: true,
                   config: function () {
@@ -146,7 +148,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
                     this.page.title = title.get();
                     this.page.url = 'http://kentenglish.ca/posts/' + $routeParams.id;
                   }
-                }, 1000);
+                });
             });
         }, function(reason) {
             console.log('Failed to retrieve post: ' + reason);
@@ -217,15 +219,20 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
                 '<h2 class="post-title">' +
                     '<a href="/posts/{{ post.id }}" data-ng-bind="post.title"></a>' +
                 '</h2>' +
-                '<div class="post-meta">' +
+                '<div class="post-meta" class="clearfix">' +
                     '<div data-ng-switch="mode" class="right">' +
-                        '<div data-ng-switch-when="full">' +
-                            '<iframe allowtransparency="true" frameborder="0" scrolling="no" ' +
+                        '<div data-ng-switch-when="full" class="clearfix">' +
+                            '<div class="left">' +
+                                '<div id="gplus-button"></div>' +
+                            '</div>' +
+                            '<div class="left">' +
+                                '<iframe allowtransparency="true" frameborder="0" scrolling="no" ' +
                                     'src="https://platform.twitter.com/widgets/tweet_button.html?via=kentenglish" ' +
                                     'style="width:130px; height:20px;"></iframe>' +
+                            '</div>' +
                         '</div>' +
                     '</div>' +
-                    '<div class="post-date" data-ng-bind="post.date | date:fullDate"></div>' +
+                    '<div class="post-date" data-ng-bind="post.date | date:\'MMMM d, y\'"></div>' +
                 '</div>' +
                 '<div class="post-content" data-ng-bind-html="post.html"></div>' +
                 '<div class="post-read-more">' +

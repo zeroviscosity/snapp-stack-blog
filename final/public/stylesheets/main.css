@@ -8614,11 +8614,11 @@ nav .zv-nav li a:hover {
 }
 /* line 7, ../../src/scss/_post.scss */
 .post .post-meta {
-  margin-bottom: 0.625rem;
+  margin: 0.625rem 0 1.25rem 0;
 }
 /* line 9, ../../src/scss/_post.scss */
 .post .post-meta .post-date {
-  font-size: 0.75rem;
+  color: #727272;
 }
 /* line 13, ../../src/scss/_post.scss */
 .post .post-content {
